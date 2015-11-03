@@ -1,0 +1,133 @@
+﻿<Page
+    x:Class="MusicPlayer.NowPlaying"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MusicPlayer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="#edf3fb">
+        <!-- Adaptive triggers -->
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Albumart.Height" Value="500"/>
+                        <Setter Target="Albumart.Width" Value="500"/>
+                        <Setter Target="AlbumartClip.Rect" Value="0,0,500,250"/>
+
+                        <Setter Target="AlbumartContainerDown.Width" Value="500"/>
+                        <Setter Target="AlbumartContainerDown.Height" Value="500"/>
+                        <Setter Target="AlbumartContainerDownClip.Rect" Value="0,250,500,500"/>
+
+
+                        <Setter Target="AlbumartRing.Height" Value="525"/>
+                        <Setter Target="AlbumartRing.Width" Value="525"/>
+
+                        <Setter Target="txtSongTitle.FontSize" Value="25"/>
+                        <Setter Target="txtSongTitle.Margin" Value="0,270,0,0"/>
+
+                        <Setter Target="txtAlbumTitle.FontSize" Value="20"/>
+                        <Setter Target="txtAlbumTitle.Margin" Value="0,310,0,0"/>
+
+
+                        <Setter Target="btnPlay.Width" Value="120"/>
+                        <Setter Target="btnPlay.Height" Value="120"/>
+
+                        <Setter Target="btnNext.Width" Value="80"/>
+                        <Setter Target="btnNext.Height" Value="80"/>
+
+                        <Setter Target="btnPrev.Width" Value="80"/>
+                        <Setter Target="btnPrev.Height" Value="80"/>
+
+                        <Setter Target="ControlContainer.Margin" Value="0,350,0,0"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="Albumart.Height" Value="300"/>
+                        <Setter Target="Albumart.Width" Value="300"/>
+                        <Setter Target="AlbumartClip.Rect" Value="0,0,300,150"/>
+
+                        <Setter Target="AlbumartContainerDown.Width" Value="300"/>
+                        <Setter Target="AlbumartContainerDown.Height" Value="300"/>
+                        <Setter Target="AlbumartContainerDownClip.Rect" Value="0,150,300,300"/>
+
+                        <Setter Target="AlbumartRing.Height" Value="325"/>
+                        <Setter Target="AlbumartRing.Width" Value="325"/>
+
+
+                        <Setter Target="txtSongTitle.FontSize" Value="20"/>
+                        <Setter Target="txtSongTitle.Margin" Value="0,160,0,0"/>
+
+                        <Setter Target="txtAlbumTitle.FontSize" Value="15"/>
+                        <Setter Target="txtAlbumTitle.Margin" Value="0,190,0,0"/>
+
+
+                        <Setter Target="btnPlay.Width" Value="80"/>
+                        <Setter Target="btnPlay.Height" Value="80"/>
+
+                        <Setter Target="btnNext.Width" Value="50"/>
+                        <Setter Target="btnNext.Height" Value="50"/>
+
+                        <Setter Target="btnPrev.Width" Value="50"/>
+                        <Setter Target="btnPrev.Height" Value="50"/>
+
+                        <Setter Target="ControlContainer.Margin" Value="0,220,0,0"/>
+
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Image Source="Assets/BG.png" Stretch="Fill"/>
+
+        <Grid VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <!-- Black ring around Album art with opacity .10 -->
+            <Ellipse Height="525" Grid.Row="0" Width="525" Fill="Black" Opacity=".10" x:Name="AlbumartRing"/>
+
+            <!-- Album Art -->
+            <Ellipse Height="500" Grid.Row="0" Width="500" x:Name="Albumart" >
+                <Ellipse.Fill>
+                    <ImageBrush x:Name="albumrtImage" ImageSource="Assets\Albumart.png" Stretch="UniformToFill" />
+                </Ellipse.Fill>
+                <Ellipse.Clip >
+                    <RectangleGeometry Rect="0,0,500,250" x:Name="AlbumartClip"/>
+                </Ellipse.Clip>
+            </Ellipse>
+
+            <!-- Bottom part of album art with controls -->
+            <Ellipse Height="500" Grid.Row="0" Width="500" x:Name="AlbumartContainerDown" Fill="#34353c" >
+                <Ellipse.Clip >
+                    <RectangleGeometry x:Name="AlbumartContainerDownClip" Rect="0,250,500,500" />
+                </Ellipse.Clip>
+            </Ellipse>
+
+            <TextBlock x:Name="txtSongTitle" Grid.Row="0" HorizontalAlignment="Center"   Text="Song Title " FontSize="25" Foreground="White" Style="{StaticResource HeaderTextBlockStyle}" TextTrimming="WordEllipsis"  />
+            <TextBlock x:Name="txtAlbumTitle"  Grid.Row="0" Text="Label " HorizontalAlignment="Center" FontWeight="Light" FontSize="20"  Foreground="#9799a5" Style="{StaticResource BodyTextBlockStyle}" TextTrimming="WordEllipsis"/>
+            <StackPanel Margin="0,350,0,0" x:Name="ControlContainer" Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Button x:Name="btnPrev" Background="Transparent" Height="80" Width="80" Click="btnPrev_Click">
+                    <Image  Source="Assets/Prev.png"  Stretch="Uniform"/>
+                </Button>
+                <Button x:Name="btnPlay" Background="Transparent" Height="120" Width="120" Click="btnPlay_Click">
+                    <Image Source="Assets/Play.png"  Stretch="Uniform"/>
+                </Button>
+                <Button x:Name="btnNext" Background="Transparent" Height="80" Width="80" Click="btnNext_Click">
+                    <Image  Source="Assets/Next.png" Stretch="Uniform"/>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+
+
+    </Grid>
+</Page>

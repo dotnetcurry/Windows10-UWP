@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="MusicPlayer.Likes"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MusicPlayer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:data="using:BackgroundAudioShared">
+
+    <Page.Resources>
+
+        <DataTemplate x:Key="ImageOverlayTemplate" x:DataType="data:SoundCloudTrack">
+            <StackPanel Height="130" Width="190" Margin="4,4,4,8">
+                <TextBlock Text="{x:Bind title}" 
+                       Margin="8,4" Width="186" Style="{StaticResource BaseTextBlockStyle}" HorizontalAlignment="Left"/>
+                <Image Source="{x:Bind AlbumArtUri}" Margin="8,0,8,8" Stretch="UniformToFill"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <GridView x:Name="grdLikes" ItemTemplate="{StaticResource ImageOverlayTemplate }" IsItemClickEnabled="True" IsSwipeEnabled="False" CanDragItems="False" SelectionMode="None"  ItemClick="grdLikes_ItemClick" />
+    </Grid>
+</Page>

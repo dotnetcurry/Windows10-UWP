@@ -1,0 +1,2 @@
+MainPackage=E:\Projects\Sound Cloud\MusicPlayer\MusicPlayer\bin\ARM\Debug\MusicPlayer_2.0.2.0_ARM_Debug.appx
+ResourcePack=E:\Projects\Sound Cloud\MusicPlayer\MusicPlayer\bin\ARM\Debug\MusicPlayer_2.0.2.0_scale-100.appx

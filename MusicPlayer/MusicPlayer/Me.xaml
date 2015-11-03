@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="MusicPlayer.Me"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MusicPlayer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel HorizontalAlignment="Center">
+            <Ellipse Height="250" Grid.Row="0" Width="250" x:Name="Albumart" >
+                <Ellipse.Fill>
+                    <ImageBrush x:Name="profilePhoto" ImageSource="Assets\Albumart.png" Stretch="UniformToFill" />
+                </Ellipse.Fill>
+            </Ellipse>
+            <TextBlock Text="First Name" Style="{StaticResource TitleTextBlockStyle}" Foreground="Gray" />
+            <TextBlock x:Name="txtFirstname" Text="" Style="{StaticResource HeaderTextBlockStyle}" />
+            <TextBlock Text="Last Name" Style="{StaticResource TitleTextBlockStyle}" Foreground="Gray" />
+            <TextBlock x:Name="txtlastname"  Text="" Style="{StaticResource HeaderTextBlockStyle}" />
+            <TextBlock Text="City" Style="{StaticResource TitleTextBlockStyle}" Foreground="Gray" />
+            <TextBlock x:Name="txtCity"  Text="" Style="{StaticResource HeaderTextBlockStyle}" />
+            <TextBlock Text="Country" Style="{StaticResource TitleTextBlockStyle}" Foreground="Gray" />
+            <TextBlock x:Name="txtCountry"  Text="" Style="{StaticResource HeaderTextBlockStyle}" />
+            <TextBlock Text="Website" Style="{StaticResource TitleTextBlockStyle}" Foreground="Gray" />
+            <TextBlock x:Name="txtWebsite"  Text="" Style="{StaticResource HeaderTextBlockStyle}" />
+            <TextBlock Text="Following" Style="{StaticResource TitleTextBlockStyle}" Foreground="Gray" />
+            <TextBlock x:Name="txtFollowing"  Text="" Style="{StaticResource HeaderTextBlockStyle}" />
+            <TextBlock Text="Followers" Style="{StaticResource TitleTextBlockStyle}" Foreground="Gray" />
+            <TextBlock x:Name="txtFollowers"  Text="" Style="{StaticResource HeaderTextBlockStyle}" />
+        </StackPanel>
+    </Grid>
+</Page>
